@@ -31,3 +31,61 @@ To make predictions using the pickled model:
 3) Load model from pickle
 4) Construct data row with location, sqft, bath, bhk
 5) Get location index from columns
+
+# Flask Server using Pycharm
+## Server.py
+Flask server that handles HTTP requests
+Exposes APIs for:
+- Getting location names 
+- Predicting house prices
+
+Uses util.py for actual prediction logic
+
+Configures CORS to allow cross-origin API requests
+
+Key responsibilities:
+- Creating Flask application
+- Defining APIs for client requests
+- Importing util to get required data for response
+- Enabling CORS for browser security
+
+## Util.py
+Handles actual logic for house price prediction using saved model
+- Loads artifacts - scaler, model, columns info
+- Supports making predictions for a data instance 
+- Contains helper functions for API response
+
+### Key responsibilities
+- Loading model and other artifacts needed for prediction
+- Data transformation and preprocessing
+- Running model prediction
+- Exposing supporting functions to server.py
+
+# Creating Web App using VS Code
+## app.css
+
+CSS styling for the web interface
+- Defines styling for elements like radio buttons, submit button, result display etc
+- Imports google font Roboto 
+- Sets blur background image
+
+## app.html
+HTML template for the web interface
+
+- Contains input fields for area, BHK, bathrooms
+- Radio buttons implemented for options 
+- Drop down for locations
+- Results div to display predicted price 
+- JavaScript file linked
+
+## app.js
+JavaScript handling backend API calls
+
+- Gets input values selected  
+- Makes POST AJAX request to Python backend for prediction
+- Displays returned prediction
+- Gets list of locations on page load
+
+The key files implement the web interface for getting user inputs and displaying the predicted house price returned by the Python backend.
+
+CSS handles styling to create the actual frontend template. JavaScript sends user data and handles API response. HTML provides the structure.
